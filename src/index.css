@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #100410;
+  color: #fdf8ee;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overscroll-behavior-y: none;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a0816;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f5456f, #dc1f4f);
+  border-radius: 8px;
+}
+
+::selection {
+  background: rgba(245, 69, 111, 0.4);
+  color: #fff;
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 24px rgba(255, 169, 189, 0.55), 0 0 48px rgba(245, 69, 111, 0.35);
+  }
+  .text-glow-gold {
+    text-shadow: 0 0 18px rgba(245, 201, 75, 0.6), 0 0 40px rgba(234, 179, 8, 0.35);
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .glass-rose {
+    background: rgba(245, 69, 111, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 169, 189, 0.22);
+  }
+  .gold-gradient-text {
+    background: linear-gradient(90deg, #fae08c, #f5c94b, #fae08c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .rose-gradient-text {
+    background: linear-gradient(90deg, #ffa3bd, #f5456f, #ffa3bd);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .shimmer-text {
+    animation: shimmer 6s linear infinite;
+  }
+}
+
+/* Typewriter caret */
+.type-caret::after {
+  content: '|';
+  margin-left: 2px;
+  color: #ffa3bd;
+  animation: blink 0.9s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
